@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import { HomeNotifications } from "@/components/HomeNotifications";
 
 export default function Home() {
   return (
@@ -82,35 +83,8 @@ export default function Home() {
                 Live
               </span>
             </div>
-            <div className="mt-6 space-y-4">
-              {[
-                {
-                  title: "New message from Aisha",
-                  time: "Just now",
-                  status: "“Can you check the update?”",
-                },
-                {
-                  title: "New message from Daniel",
-                  time: "4m ago",
-                  status: "“Let’s sync after lunch.”",
-                },
-                {
-                  title: "New message from Priya",
-                  time: "18m ago",
-                  status: "“Sent the latest design files.”",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="flex items-center justify-between rounded-2xl bg-white/90 p-4 shadow-sm hover-lift"
-                >
-                  <div>
-                    <p className="text-sm font-semibold">{item.title}</p>
-                    <p className="text-xs text-neutral-500">{item.status}</p>
-                  </div>
-                  <p className="text-xs text-neutral-400">{item.time}</p>
-                </div>
-              ))}
+            <div className="mt-6">
+              <HomeNotifications />
             </div>
             <div className="mt-6 rounded-2xl bg-white/90 p-4 text-sm text-neutral-600">
               Notifications keep you updated the moment someone reaches out.
