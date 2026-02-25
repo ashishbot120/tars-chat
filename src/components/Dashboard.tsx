@@ -14,7 +14,7 @@ export function Dashboard() {
   const conversations = useQuery(api.conversations.listMyConversations);
   const otherUsers = useQuery(
     api.users.listUsers,
-    user ? { excludeClerkUserId: user.id, search: "" } : undefined
+    user ? { excludeClerkUserId: user.id, search: "" } : "skip"
   );
 
   const stats = useMemo(() => {
