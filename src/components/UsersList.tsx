@@ -99,31 +99,40 @@ export function UsersList() {
   const hasSearch = search.trim().length > 0;
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-10">
-      <Input
-        placeholder="Search users..."
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
+    <div className="flex w-full flex-col gap-6">
+      <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="surface-solid rounded-2xl p-4 md:p-5">
+          <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+            Search
+          </p>
+          <Input
+            placeholder="Search users..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            className="mt-3 bg-white/90"
+          />
+        </div>
 
-      <Card className="space-y-3 p-4 animate-fade-in bg-white/80">
-        <p className="text-sm font-medium">Create group</p>
-        <Input
-          placeholder="Group name"
-          value={groupName}
-          onChange={(event) => setGroupName(event.target.value)}
-        />
-        <Button
-          onClick={handleCreateGroup}
-          disabled={!groupName.trim() || selected.length === 0}
-          className="bg-emerald-500 text-white hover:bg-emerald-600"
-        >
-          Create group ({selected.length})
-        </Button>
-        {groupError && (
-          <p className="text-xs text-red-600">{groupError}</p>
-        )}
-      </Card>
+        <Card className="space-y-3 p-4 animate-fade-in bg-white/80">
+          <p className="text-sm font-medium">Create group</p>
+          <Input
+            placeholder="Group name"
+            value={groupName}
+            onChange={(event) => setGroupName(event.target.value)}
+            className="bg-white/90"
+          />
+          <Button
+            onClick={handleCreateGroup}
+            disabled={!groupName.trim() || selected.length === 0}
+            className="accent-gradient"
+          >
+            Create group ({selected.length})
+          </Button>
+          {groupError && (
+            <p className="text-xs text-red-600">{groupError}</p>
+          )}
+        </Card>
+      </div>
 
       {(!isReady || isUsersLoading) && (
         <Card className="space-y-3 p-6 animate-fade-in">
@@ -150,7 +159,7 @@ export function UsersList() {
           filteredUsers.map((listedUser) => (
             <Card
               key={listedUser._id}
-              className="flex items-center justify-between p-4 transition hover:-translate-y-0.5 hover:shadow-sm bg-white/80"
+              className="flex flex-col gap-4 p-4 transition hover:-translate-y-0.5 hover:shadow-sm bg-white/85 md:flex-row md:items-center md:justify-between"
             >
               <div className="flex items-center gap-3">
                 <input
@@ -183,6 +192,7 @@ export function UsersList() {
               <Button
                 onClick={() => handleCreateDM(listedUser.clerkUserId)}
                 disabled={isCreating !== null}
+                className="w-full md:w-auto"
               >
                 {isCreating === listedUser.clerkUserId
                   ? "Opening..."

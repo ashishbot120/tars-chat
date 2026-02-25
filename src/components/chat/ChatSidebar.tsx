@@ -61,7 +61,7 @@ export function ChatSidebar() {
 
       <Link
         href="/users"
-        className="rounded-xl border border-white/70 bg-white/80 px-4 py-3 text-sm font-medium text-neutral-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+        className="rounded-2xl border border-white/70 bg-white/85 px-4 py-3 text-sm font-medium text-neutral-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
       >
         Find people
       </Link>
@@ -70,7 +70,7 @@ export function ChatSidebar() {
         placeholder="Search conversations..."
         value={search}
         onChange={(event) => setSearch(event.target.value)}
-        className="bg-white/80"
+        className="bg-white/85"
       />
 
       <div className="space-y-3">
@@ -111,13 +111,13 @@ export function ChatSidebar() {
               href={`/chat/${conversation.conversationId}`}
               className="block"
             >
-                <Card
-                  className={`flex items-center gap-3 p-3 transition ${
-                    isActive
-                      ? "border-emerald-400 bg-emerald-50/70 shadow-sm"
-                      : "hover:bg-white/70"
-                  } animate-slide-up`}
-                >
+              <Card
+                className={`flex items-center gap-3 p-3 transition ${
+                  isActive
+                    ? "border-emerald-300 bg-emerald-50/80 shadow-sm"
+                    : "hover:bg-white/80"
+                } animate-slide-up`}
+              >
                 <div className="relative">
                   <Avatar>
                     <AvatarImage src={otherUser?.imageUrl} />

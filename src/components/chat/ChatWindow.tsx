@@ -12,7 +12,11 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PresenceDot } from "@/components/chat/PresenceDot";
 import { TypingIndicator } from "@/components/chat/TypingIndicator";
-import { formatDateDivider, formatLastSeen, formatMessageTimestamp } from "@/lib/format";
+import {
+  formatDateDivider,
+  formatLastSeen,
+  formatMessageTimestamp,
+} from "@/lib/format";
 import { isPresenceOnline } from "@/lib/presence";
 
 type ChatWindowProps = {
@@ -20,7 +24,13 @@ type ChatWindowProps = {
 };
 
 const SCROLL_THRESHOLD_PX = 80;
-const REACTION_EMOJIS = ["❤️", "👍", "😂", "🔥", "👀"];
+const REACTION_EMOJIS = [
+  "\u2764\ufe0f",
+  "\ud83d\udc4d",
+  "\ud83d\ude02",
+  "\ud83d\udd25",
+  "\ud83d\udc40",
+];
 
 export function ChatWindow({ conversationId }: ChatWindowProps) {
   const conversation = useQuery(api.conversations.getConversation, {
@@ -169,8 +179,8 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
   }
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-white/60 bg-white/80 backdrop-blur animate-fade-in">
-      <div className="flex items-center justify-between border-b border-neutral-200 px-5 py-4">
+    <div className="flex h-full flex-col rounded-[24px] border border-white/70 bg-white/80 backdrop-blur animate-fade-in">
+      <div className="flex items-center justify-between border-b border-neutral-200/70 px-4 py-4 md:px-5">
         <div className="flex items-center gap-3">
           <Button
             asChild
@@ -219,7 +229,7 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
 
       <div
         ref={scrollContainerRef}
-        className="relative flex-1 space-y-4 overflow-y-auto px-5 py-6 bg-[linear-gradient(180deg,rgba(255,255,255,0.5)_0%,rgba(248,250,252,0.9)_100%)]"
+        className="relative flex-1 space-y-4 overflow-y-auto px-4 py-6 md:px-5 bg-[linear-gradient(180deg,rgba(255,255,255,0.5)_0%,rgba(248,250,252,0.9)_100%)]"
       >
         {messageResults === undefined ? (
           <Card className="p-6 text-center text-sm text-neutral-600 animate-fade-in">
@@ -257,7 +267,7 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
                     className={`flex ${isOwn ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-[75%] rounded-2xl px-4 py-3 text-sm ${
+                      className={`max-w-[82%] rounded-2xl px-4 py-3 text-sm ${
                         isOwn ? "bubble-out" : "bubble-in"
                       } animate-slide-up`}
                     >
@@ -345,8 +355,8 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
         )}
       </div>
 
-      <div className="border-t border-white/60 px-5 py-4">
-        <div className="flex items-center gap-3">
+      <div className="border-t border-white/60 px-4 py-4 md:px-5">
+        <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
           <Input
             value={messageBody}
             onChange={(event) => handleInputChange(event.target.value)}
@@ -362,7 +372,7 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
           <Button
             onClick={handleSend}
             disabled={!messageBody.trim() || isSending}
-            className="bg-emerald-500 text-white hover:bg-emerald-600"
+            className="accent-gradient"
           >
             Send
           </Button>

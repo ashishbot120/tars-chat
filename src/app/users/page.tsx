@@ -13,22 +13,26 @@ export default async function UsersPage() {
 
   return (
     <div className="min-h-screen bg-chat">
-      <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 py-8">
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-            Directory
-          </p>
-          <h1 className="text-2xl font-semibold">Users</h1>
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
+              Directory
+            </p>
+            <h1 className="text-2xl font-semibold md:text-3xl">Users</h1>
+            <p className="mt-2 text-sm text-muted">
+              Start a new chat or build a group in seconds.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button asChild variant="outline" size="sm" className="bg-white/70">
+              <Link href="/chat">Back to Chat</Link>
+            </Button>
+            <UserButton />
+          </div>
         </div>
-        <div className="flex items-center gap-3">
-          <Button asChild variant="outline" size="sm">
-            <Link href="/chat">Back to Chat</Link>
-          </Button>
-          <UserButton />
-        </div>
-      </div>
-      <div className="mx-auto w-full max-w-3xl px-4 pb-10">
-        <div className="card-glass rounded-3xl border border-white/60 p-5">
+
+        <div className="surface-glass glass-border rounded-[28px] p-4 md:p-6 animate-rise">
           <UsersList />
         </div>
       </div>

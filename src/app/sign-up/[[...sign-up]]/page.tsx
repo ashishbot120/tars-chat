@@ -17,8 +17,10 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
   const redirectUrl = searchParams?.redirect_url ?? "/users";
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 py-10">
-      <SignUp redirectUrl={redirectUrl} signInUrl="/sign-in" />
+    <div className="flex min-h-screen items-center justify-center bg-chat px-4 py-10">
+      <div className="surface-glass glass-border rounded-[28px] p-6 md:p-8 animate-rise">
+        <SignUp redirectUrl={redirectUrl} signInUrl="/sign-in" />
+      </div>
     </div>
   );
 }
