@@ -84,9 +84,21 @@ export default function Home() {
             </div>
             <div className="mt-6 space-y-4">
               {[
-                { title: "Design sync", time: "2m ago", status: "2 members" },
-                { title: "Product review", time: "18m ago", status: "5 members" },
-                { title: "Launch prep", time: "1h ago", status: "3 members" },
+                {
+                  title: "New message from Aisha",
+                  time: "Just now",
+                  status: "“Can you check the update?”",
+                },
+                {
+                  title: "New message from Daniel",
+                  time: "4m ago",
+                  status: "“Let’s sync after lunch.”",
+                },
+                {
+                  title: "New message from Priya",
+                  time: "18m ago",
+                  status: "“Sent the latest design files.”",
+                },
               ].map((item) => (
                 <div
                   key={item.title}
@@ -101,7 +113,7 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-6 rounded-2xl bg-white/90 p-4 text-sm text-neutral-600">
-              Stay on top of every conversation, from any device.
+              Notifications keep you updated the moment someone reaches out.
             </div>
           </section>
         </main>
