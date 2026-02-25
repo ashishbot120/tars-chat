@@ -41,6 +41,9 @@ export default function Home() {
                 <Link href="/users">Browse users</Link>
               </Button>
               <Button asChild variant="outline" className="bg-white/70">
+                <Link href="/dashboard">Open dashboard</Link>
+              </Button>
+              <Button asChild variant="outline" className="bg-white/70">
                 <Link href="/chat">Open chat</Link>
               </Button>
               <SignedOut>
