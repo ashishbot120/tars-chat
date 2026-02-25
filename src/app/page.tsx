@@ -78,7 +78,7 @@ export default function Home() {
 
           <section className="surface-solid ring-soft rounded-[28px] p-6 md:p-8 animate-rise">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-neutral-700">Dashboard</p>
+              <p className="text-sm font-medium text-neutral-700">Activities</p>
               <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs text-emerald-700">
                 Live
               </span>
